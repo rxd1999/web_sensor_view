@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>室内温湿度检测系统</title>
+    <link rel="stylesheet" type="text/css" href="./static/css/style.css">
+</head>
+
+<body>
+    <div id="background"></div>
+    <div class="left">
+        <h4>Indoor<iframe src="./static/img/indoor.svg" title="indoor"></iframe></h4>
+        <div class="clearfix">
+            <div class="temper">
+                <span class="name">温度：</span>
+                <span id="temp_value">0</span>
+                <span class="unit">℃</span>
+                <section>
+                    <span class="indicate" id="temp_pointer"></span>
+                    <span class="bar"></span>
+                </section>
+            </div>
+            <div class="humi">
+                <span class="name">湿度：</span>
+                <span id="humi_value">0</span>
+                <span class="unit">%</span></br>
+                <section>
+                    <span class="indicate" id="humi_pointer"></span>
+                    <span class="bar"></span>
+                </section>
+            </div>
+        </div>
+        <h4>Outdoor<iframe src="./static/img/outdoor.svg" title="outdoor"></iframe> </h4>
+        <div class="weather">
+            <iframe scrolling="no" frameborder="0" allowtransparency="true"
+                src="https://i.tianqi.com?c=code&a=getcode&id=55&color=%2300B0F0&bgc=%23&icon=3&site=19">
+            </iframe>
+        </div>
+    </div>
+    <div class="right">
+        <div id="chart_temp"></div>
+        <div id="chart_humi"></div>
+        <div class="date">
+            <input type="date" name="lookingDate" id="day">
+            <!-- <input id="month" type="text" autocomplete="off">&nbsp;<span>月</span>
+            <input id="day" type="text" autocomplete="off">&nbsp;<span>日</span> -->
+            <input type="button" onclick="drawChart()" value="查看"></input>
+        </div>
+</body>
+<script src="./static/js/echarts.min.js"></script>
+<script src="./static/js/draw.js"></script>
+
+</html>

@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-appearance: none;
+}
+.clearfix:after, .clearfix:before {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+html, body {
+    height: 100%;
+}
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient( 135deg, #FFF886 10%, #F072B6 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 1000px;
+    z-index: -10;
+    -webkit-background-size: cover;
+    background-position: center 0;
+    zoom: 1;
+    /* min-width: 1000px; */
+}
+
+.right, .left {
+    position: relative;
+    display: inline-block;
+}
+.left {
+    float: left;
+    height: 100%;
+    width: 350px;
+}
+.right {
+    float: left;
+    width: 600px;
+    margin-left: 10px;
+}
+.left .clearfix {
+    height: 210px;
+    width: 100%;
+    transform-style: preserve-3d;
+    animation: roll 5s cubic-bezier(1,0,0,1) infinite alternate-reverse;
+}
+.left .clearfix:hover {
+    animation-play-state: paused;
+}
+@keyframes roll {
+    0% {
+    }
+    100% {
+        transform: rotateY(900deg);
+    }
+}
+.humi {
+    transform: rotateY(180deg);
+}
+
+.temper, .humi {
+    position: absolute;
+    left: 0px;
+    top: 25px;
+    height: 150px;
+    width: 330px;
+    /* background-color: transparent; */
+    border-radius: 20px;
+    box-shadow: 4px 4px 4px rgba(255, 255, 255, .5);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+    margin: 5px 0 0 5px;
+    backface-visibility: hidden;
+    z-index: 1;
+}
+.temper::after, .humi::after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    background-color: rgba(255, 255, 255, 0.5);
+    filter: blur(15px);
+    z-index: -1;
+}
+.temper section, .humi section {
+    position: relative;
+    top: 20px;
+    margin: 0 auto;
+    width: 200px;
+}
+.indicate {
+    position: absolute;
+    left: 0;
+    bottom: 15px;
+    height: 0px;
+    width: 0px;
+    border-top: 10px solid white;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    /* box-shadow: 2px 2px 2px rgba(0, 0, 0, .5); */
+}
+.indicate::after {
+    position: absolute;
+    left: 4px;
+    top: -10px;
+    height: 11px;
+    width: 1px;
+    content: '';
+    background-color: transparent;
+    transform: rotateZ(27deg);
+    transform-origin: left top;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+}
+.bar {
+    position: absolute;
+    left: 0px;
+    bottom: 5px;
+    width: 200px;
+    height: 10px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+    border-radius: 5px;
+    
+}
+.temper .bar {
+    background: #00c3ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffff1c, #00c3ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #00c3ff,#ffff1c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.humi .bar {
+    background: #2980B9;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.name {
+    position: absolute;
+    left: 25px;
+    top: 20px;
+    display: block;
+    color: seashell;
+    font-size: 30px;
+}
+#temp_value, #humi_value {
+    margin: 35px 0 0 120px;
+    display: inline-block;
+    font-size: 70px;
+    font-weight: 600;
+}
+#temp_value {
+    color: lavender;
+}
+#humi_value {
+    color:deepskyblue;
+}
+.unit {
+    color: seashell;
+    font-size: 50px;
+}
+.left h4 {
+    color: wheat;
+    font-size: 45px;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+}
+.weather {
+    height: 350px;
+    width: 100%;
+    text-align: center;
+}
+.weather iframe {
+    padding: 20px;
+    border-radius: 20px;
+    width: 280px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, .2); 
+}
+h4 iframe {
+    height: 48px;
+    width: 48px;
+    margin: 0 0 -5px 10px;
+    border: none;
+}
+
+.weather iframe:hover {
+    box-shadow: 1px 1px 2px 2px rgba(255, 255, 255, .5);
+    transform: scale(1.01);
+}
+#chart_temp, #chart_humi {
+    width: 500px;
+    height: 300px;
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: rgba(255,255,255,.5);
+}
+.date {
+    margin-top: 5px;
+}
+.date input, button{
+    height: 25px;
+    width: 145px;
+    color: seashell;
+    font-size: 20px;
+    text-align: center;
+    border: none;
+    border-bottom: solid 2px rgb(0, 175, 255);
+    background-color: rgba(0, 0, 0, .5);
+    outline: none;
+    vertical-align: middle;
+}
+.date input[type=button] {
+    border: solid 2px deepskyblue;
+    box-sizing: content-box;
+}
+.date span {
+    color: seashell;
+    line-height: 25px;
+    font-size: 18px;
+}
